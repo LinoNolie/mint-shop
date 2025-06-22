@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facebike Shop</title>
+    <title>Facebike Eyewear</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">
-                <img src="assets/facebike-logo.svg" alt="Facebike Logo">
+                <img src="assets/logo/facebike-logo.svg" alt="Facebike Logo">
                 <span>Facebike</span>
             </div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#bikes">Bikes</a></li>
+                <li><a href="#all">All Glasses</a></li>
+                <li><a href="#new">New Arrivals</a></li>
+                <li><a href="try-on.html">Virtual Try-on</a></li>
                 <li><a href="#cart">Cart</a></li>
             </ul>
         </nav>
@@ -23,23 +24,56 @@
 
     <main>
         <section class="hero">
-            <h1>Welcome to Facebike</h1>
-            <p>Your Premium Bike Shop</p>
+            <h1>Premium Eyewear Collection</h1>
+            <div class="slogan">
+                <span class="slogan-line">see better</span>
+                <span class="slogan-divider">—</span>
+                <span class="slogan-line">look better</span>
+            </div>
+            <p>Discover your perfect style</p>
         </section>
 
-        <section class="products">
-            <h2>Featured Bikes</h2>
+        <section class="products" id="all">
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="sunglasses">Sunglasses</button>
+                <button class="filter-btn" data-filter="optical">Optical</button>
+            </div>
             <div class="product-grid">
-                <!-- Product cards will go here -->
+                <div class="product-card" data-category="sunglasses">
+                    <div class="product-gallery">
+                        <div class="main-image">
+                            <img src="./products/aviator/main.jpg" alt="Classic Aviator" class="magnifiable">
+                            <div class="magnifier"></div>
+                        </div>
+                        <div class="thumbnail-container">
+                            <img src="./products/aviator/main.jpg" alt="Front view" class="thumbnail active">
+                            <img src="./products/aviator/side.jpg" alt="Side view" class="thumbnail">
+                            <img src="./products/aviator/angle.jpg" alt="Angle view" class="thumbnail">
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Classic Aviator</h3>
+                        <p class="price">€149.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="logo-small">
-            <img src="assets/facebike-logo.svg" alt="Facebike Logo">
+            <img src="assets/logo/facebike-logo.svg" alt="Facebike Logo">
+        </div>
+        <div class="footer-links">
+            <a href="legal/imprint.html">Imprint</a>
+            <a href="legal/shipping.html">Shipping Information</a>
+            <a href="legal/returns.html">Returns & Refunds</a>
         </div>
         <p>&copy; 2024 Facebike</p>
     </footer>
+    <script src="js/main.js"></script>
+    <script src="js/gallery.js"></script>
 </body>
 </html>

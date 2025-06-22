@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Try-on - Facebike</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="assets/logo/facebike-logo.svg" alt="Facebike Logo">
+                <span>Facebike</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">All Glasses</a></li>
+                <li><a href="#new">New Arrivals</a></li>
+                <li><a href="try-on.html">Virtual Try-on</a></li>
+                <li><a href="#cart">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="try-on-container">
+            <h1>Virtual Try-on</h1>
+            <p>Try on our glasses using your camera or upload a photo</p>
+            
+            <div class="controls">
+                <button class="btn" id="startCamera">Use Camera</button>
+                <input type="file" id="photoUpload" accept="image/*" style="display: none">
+                <button class="btn" id="uploadPhoto">Upload Photo</button>
+            </div>
+
+            <div class="upload-area" id="dropZone">
+                <p>Drag and drop your photo here or use the buttons above</p>
+            </div>
+
+            <video class="camera-preview" id="cameraPreview" style="display: none" autoplay></video>
+            <canvas id="previewCanvas" style="display: none"></canvas>
+
+            <div class="glasses-selection">
+                <h2>Select Glasses</h2>
+                <!-- Glasses options will be populated dynamically -->
+            </div>
+
+            <button class="btn" id="generateImage" style="display: none">Generate Preview</button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="logo-small">
+            <img src="assets/logo/facebike-logo.svg" alt="Facebike Logo">
+        </div>
+        <p>&copy; 2024 Facebike</p>
+    </footer>
+    <script src="./js/try-on.js"></script>
+</body>
+</html>

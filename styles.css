@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&display=swap');
+
 :root {
     --primary: #1a1a1a;
     --secondary: #ffffff;
-    --accent: #0066cc;
-    --background: #f5f5f5;
+    --accent: #d4af37;
+    --background: #f8f8f8;
     --text: #333333;
+    --gray: #e5e5e5;
 }
 
 * {
@@ -13,7 +16,7 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Work Sans', sans-serif;
     background-color: var(--background);
     color: var(--text);
     line-height: 1.6;
@@ -66,12 +69,49 @@ nav {
     background-color: var(--primary);
     color: var(--secondary);
     text-align: center;
-    padding: 6rem 2rem;
+    padding: 2rem 2rem; /* Reduced from 3rem to 2rem */
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem; /* Reduced from 3rem */
+    margin-bottom: 0.5rem; /* Reduced from 1rem */
+}
+
+.slogan {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1.2rem;  /* Slightly smaller font size */
+    letter-spacing: 0.05em;  /* Reduced letter spacing */
+    text-transform: lowercase;
+    margin: 0.75rem 0; /* Reduced from 1.5rem */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;  /* Reduced gap */
+    flex-wrap: nowrap;  /* Prevent wrapping */
+}
+
+.slogan-divider {
+    opacity: 0.5;
+}
+
+.slogan-line {
+    position: relative;
+}
+
+.slogan-line::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--secondary);
+    transition: width 0.3s ease;
+}
+
+.slogan-line:hover::after {
+    width: 100%;
 }
 
 .products {
@@ -80,9 +120,68 @@ nav {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 2rem;
-    margin-top: 2rem;
+    padding: 2rem 0;
+}
+
+.product-card {
+    background: var(--secondary);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    position: relative;
+    padding-top: 100%;
+    overflow: hidden;
+}
+
+.product-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 1rem;
+    text-align: center;
+}
+
+.price {
+    color: var(--accent);
+    font-weight: 600;
+    margin: 0.5rem 0;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    padding: 0.5rem 1.5rem;
+    border: none;
+    background: var(--gray);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+    background: var(--primary);
+    color: var(--secondary);
 }
 
 footer {
@@ -98,6 +197,158 @@ footer {
     margin-bottom: 1rem;
 }
 
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1rem 0;
+}
+
+.footer-links a {
+    color: var(--secondary);
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.footer-links a:hover {
+    opacity: 0.8;
+}
+
+/* Virtual Try-on Styles */
+.try-on-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.upload-area {
+    border: 2px dashed var(--gray);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    margin: 2rem 0;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.upload-area:hover {
+    border-color: var(--accent);
+}
+
+.camera-preview {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    background: var(--primary);
+    color: var(--secondary);
+    cursor: pointer;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* Product Gallery Styles */
+.product-gallery {
+    position: relative;
+    width: 100%;
+}
+
+.main-image {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    overflow: hidden;
+    cursor: zoom-in;
+}
+
+.main-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.magnifier {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    pointer-events: none;
+    background-repeat: no-repeat;
+}
+
+.thumbnail-container {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: var(--background);
+}
+
+.thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.thumbnail.active {
+    border-color: var(--accent);
+}
+
+/* Loading Animation Styles */
+.loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--gray);
+    border-top: 4px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
@@ -108,6 +359,56 @@ footer {
     .nav-links {
         width: 100%;
         justify-content: center;
+    }
+
+    .hero {
+        padding: 1.5rem 1rem; /* Reduced from 2rem */
+    }
+
+    .slogan {
+        font-size: 1rem;  /* Smaller font on mobile */
+        gap: 0.5rem;  /* Smaller gap on mobile */
+    }
+    
+    .slogan-divider {
+        margin: 0 0.2rem;  /* Tighter spacing around divider */
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
+    0% {
+        left: -12px;
+    }
+    100% {
+        left: calc(100% - 12px);
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero {
+        padding: 1.5rem 1rem; /* Reduced from 2rem */
+    }
+
+    .slogan {
+        font-size: 1rem;  /* Smaller font on mobile */
+        gap: 0.5rem;  /* Smaller gap on mobile */
+    }
+    
+    .slogan-divider {
+        margin: 0 0.2rem;  /* Tighter spacing around divider */
     }
 
     .hero h1 {
